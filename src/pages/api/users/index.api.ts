@@ -10,8 +10,6 @@ export default async function handler(
     return res.status(405).end()
   }
 
-  res.setHeader('Content-Type', 'application/json')
-
   const { name, username } = req.body
 
   const userExists = await prisma.user.findUnique({
