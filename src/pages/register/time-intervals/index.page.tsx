@@ -88,7 +88,7 @@ const TimeIntervals = () => {
           ))}
         </IntervalsContainer>
         <Button type="submit">
-          Próximo passo
+          Próximo
           <ArrowRight />
         </Button>
       </IntervalBox>
