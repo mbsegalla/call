@@ -5,7 +5,7 @@ import { Container, Header } from '../styles'
 import { useRouter } from 'next/router'
 import { AuthError, ConnectBox, ConnectItem } from './styles'
 
-const Register = () => {
+const ConnectCalendar = () => {
   const router = useRouter()
   const hasAuthError = !!router.query.error
 
@@ -56,4 +56,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default ConnectCalendar
