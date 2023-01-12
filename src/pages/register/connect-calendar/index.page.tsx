@@ -16,6 +16,10 @@ const ConnectCalendar = () => {
     await signIn('google')
   }
 
+  const goToPage = () => {
+    router.push('/register/time-intervals')
+  }
+
   return (
     <Container>
       <Header>
@@ -47,7 +51,7 @@ const ConnectCalendar = () => {
             permissões de acesso ao Google Calendar.
           </AuthError>
         )}
-        <Button type="submit" disabled={!isSignedIn}>
+        <Button onClick={goToPage} type="submit" disabled={!isSignedIn}>
           Próximo passo
           <ArrowRight />
         </Button>
