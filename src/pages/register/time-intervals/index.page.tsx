@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
 } from '@ignite-ui/react'
+import { useRouter } from 'next/router'
 import { ArrowRight } from 'phosphor-react'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -82,6 +83,8 @@ const TimeIntervals = () => {
     },
   })
 
+  const router = useRouter()
+
   const { fields } = useFieldArray({
     control,
     name: 'intervals',
@@ -97,6 +100,8 @@ const TimeIntervals = () => {
     await api.post('/users/time-intervals', {
       intervals,
     })
+
+    router.push('/register/update-profile')
   }
 
   return (
