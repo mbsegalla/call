@@ -15,6 +15,7 @@ export const CalendarHeader = styled('div', {
 
 export const CalendarTitle = styled(Text, {
   fontWeight: '$medium',
+  textTransform: 'capitalize',
 
   span: {
     color: '$gray200',
@@ -33,8 +34,8 @@ export const CalendarActions = styled('div', {
     borderRadius: '$sm',
 
     svg: {
-      width: 5,
-      height: 5,
+      width: 18,
+      height: 18,
     },
 
     '&:hover': {
@@ -81,7 +82,7 @@ export const CalendarDay = styled('button', {
   borderRadius: '$sm',
 
   '&:disabled': {
-    backgroundColor: 'none',
+    background: 'none',
     cursor: 'default',
     opacity: 0.4,
   },
