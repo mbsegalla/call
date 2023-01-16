@@ -1,23 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  pageExtensions: ['page.tsx', 'api.ts', 'api.tsx'],
-}
-
-const corsConfig = {
+module.exports = {
   async headers() {
     return [
       {
+        // matching all API routes
         source: '/api/:path*',
         headers: [
-          {
-            key: 'Access-Control-Allow-Credentials',
-            value: 'true',
-          },
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
+          { key: 'Access-Control-Allow-Credentials', value: 'true' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
           {
             key: 'Access-Control-Allow-Methods',
             value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
@@ -31,6 +21,6 @@ const corsConfig = {
       },
     ]
   },
+  reactStrictMode: true,
+  pageExtensions: ['page.tsx', 'api.ts', 'api.tsx'],
 }
-
-module.exports = { nextConfig, corsConfig }
