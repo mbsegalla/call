@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { prisma } from '../../../../lib/prisma'
 
@@ -40,10 +39,27 @@ export default async function handler(
     )
   })
 
-  const blockedDatesRaw = await prisma.$queryRaw`
-    SELECT * FROM schedulings WHERE schedulings.user_id = ${user.id}
-    AND DATE_FORMAT(schedulings.date, '%Y-%m') = ${`${year}-${month}`};
+  const blockedDatesRaw: Array<{ date: number }> = await prisma.$queryRaw`
+    SELECT 
+      EXTRACT(DAY FROM schedulings.date) AS date,
+      COUNT(schedulings.date) AS amount,
+      ((user_time_intervals.time_end_in_minutes - user_time_intervals.time_start_in_minutes) / 60) AS size
+
+    FROM schedulings 
+
+    LEFT JOIN user_time_intervals
+      ON user_time_intervals.week_day= WEEKDAY(DATE_ADD(schedulings.date, INTERVAL 1 DAY))
+
+    WHERE schedulings.user_id = ${user.id}
+      AND DATE_FORMAT(schedulings.date, '%Y-%m') = ${`${year}-${month}`}
+
+    GROUP BY EXTRACT(DAY FROM schedulings.date),
+    ((user_time_intervals.time_end_in_minutes - user_time_intervals.time_start_in_minutes) / 60)
+
+    HAVING amount >= size
   `
 
-  return res.json({ blockedWeekDays, blockedDatesRaw })
+  const blockedDates = blockedDatesRaw.map((blockedDate) => blockedDate.date)
+
+  return res.json({ blockedWeekDays, blockedDates })
 }
