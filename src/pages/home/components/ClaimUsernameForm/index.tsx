@@ -40,7 +40,7 @@ const ClaimUsernameForm = () => {
       <Form as="form" onSubmit={handleSubmit(handleClaimUsername)}>
         <TextInput
           size="sm"
-          prefix="ignite.com/"
+          prefix="user.com/"
           placeholder="Usuário"
           {...register('username')}
         />
