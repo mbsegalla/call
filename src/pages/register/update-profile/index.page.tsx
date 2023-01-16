@@ -50,12 +50,12 @@ const UpdateProfile = () => {
   return (
     <>
       <NextSeo
-        title="Ignite Call - Atualizar perfil"
-        description="Atualize seu perfil no Ignite Call"
+        title="Atualizar perfil"
+        description="Atualize seu perfil App Call"
       />
       <Container>
         <Header>
-          <Heading as="strong">Bem vindo ao Ignite Call!</Heading>
+          <Heading as="strong">Bem vindo ao App Call!</Heading>
           <Text>
             Precisamos de algumas informações para criar seu perfil! Ah, você
             pode editar essas informações depois.

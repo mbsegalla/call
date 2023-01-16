@@ -64,13 +64,13 @@ const Register = () => {
   return (
     <>
       <NextSeo
-        title="Bem vindo ao Ignite Call!"
+        title="Bem vindo ao App Call!"
         description="Precisamos de algumas informações para criar seu perfil!"
         noindex
       />
       <Container>
         <Header>
-          <Heading as="strong">Bem vindo ao Ignite Call!</Heading>
+          <Heading as="strong">Bem vindo ao App Call!</Heading>
           <Text>
             Precisamos de algumas informações para criar seu perfil! Ah, você
             pode editar essas informações depois.
