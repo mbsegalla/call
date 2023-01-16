@@ -65,7 +65,7 @@ const Register = () => {
     <>
       <NextSeo
         title="Bem vindo ao Ignite Call!"
-        description="Precisamos de algumas informações para criar seu perfil! Ah, você pode editar essas informações depois."
+        description="Precisamos de algumas informações para criar seu perfil!"
         noindex
       />
       <Container>
